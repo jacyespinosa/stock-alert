@@ -52,3 +52,16 @@ is_up = yesterdays_data > day_before_data
 news_response = requests.get(NEWS_API, params=NEWS_PARAMS)
 news_response.raise_for_status()
 news_data = news_response.json()
+
+#ACCESS THE TOP 3 LATEST NEWS ABOUT THE COMPANY
+news = news_data['articles']
+latest_news = news[:3]
+
+
+#USE THESE VARIABLES AS THE CONTENT WHEN NOTIFYING THE USER
+first_latest_news = f"Headline: {latest_news[0]['title']}\nBrief: {latest_news[0]['description']}\nURL: " \
+                    f"{latest_news[0]['url']}\n"
+second_latest_news = f"Headline: {latest_news[1]['title']}\nBrief: {latest_news[1]['description']}\nURL: " \
+                     f"{latest_news[1]['url']}\n"
+third_latest_news = f"Headline: {latest_news[2]['title']}\nBrief: {latest_news[2]['description']}\nURL: " \
+                    f"{latest_news[2]['url']}\n"
