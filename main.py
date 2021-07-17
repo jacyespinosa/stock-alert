@@ -13,3 +13,9 @@ STOCK_PARAMS = {
     "symbol": STOCK,
     "apikey": STOCK_API_KEY,
 }
+
+stock_response = requests.get(STOCK_API, params=STOCK_PARAMS)
+stock_response.raise_for_status()
+
+stock_data = stock_response.json()["Time Series (Daily)"]
+stock_data_list = [value for key, value in stock_data.items()]
