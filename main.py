@@ -98,3 +98,29 @@ if float(percent_difference) > 5:
             to='+14085616803'
         )
         print(message.status)
+
+    else:
+        client = Client(account_sid, auth_token)
+        message = client.messages.create(
+            body=f"{STOCK} 🔻{percent_difference}%\n{first_latest_news}",
+            from_='+14046206886',
+            to='+14085616803'
+        )
+
+        message = client.messages.create(
+            body=f"{STOCK} 🔻{percent_difference}%\n{second_latest_news}",
+            from_='+14046206886',
+            to='+14085616803'
+        )
+
+        message = client.messages.create(
+            body=f"{STOCK} 🔻{percent_difference}%\n{third_latest_news}",
+            from_='+14046206886',
+            to='+14085616803'
+        )
+        print(message.status)
+
+    '''
+    IF THE PERCENT DIFFERENCE IS NEGATIVE, THEN THAT MEANS THE PRICE IS DOWN. SEND THREE SEPARATE MESSAGES WITH THE 
+    🔻 ICON TO SIGNIFY THAT THE STOCK IS DOWN.
+    '''
