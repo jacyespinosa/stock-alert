@@ -10,6 +10,8 @@ STOCK = "TSLA"
 NEWS_API_KEY = "INSERT APIT KEY"
 NEWS_API = "https://newsapi.org/v2/everything"
 COMPANY_NAME = "TESLA"
+
+''' NEED AT LEAST ONE MONTH WORTH OF NEWS ABOUT THE COMPANY BECAUSE SOME COMPANIES MIGHT NOT HAVE A LOT OF NEWS'''
 last_month_date = date.today() - timedelta(days=25)
 
 #GET FREE API KEY
