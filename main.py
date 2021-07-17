@@ -8,7 +8,7 @@ STOCK = "TSLA"
 #GET NEWS API KEY
 NEWS_API_KEY = "INSERT APIT KEY"
 NEWS_API = "https://newsapi.org/v2/everything"
-COMPANY_NAME = "Roblox"
+COMPANY_NAME = "TESLA"
 last_month_date = date.today() - timedelta(days=25)
 
 #GET FREE API KEY
