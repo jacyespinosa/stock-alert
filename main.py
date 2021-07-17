@@ -1,7 +1,15 @@
 import requests
+from datetime import date, timedelta
+
 
 #CHOOSE A STOCK TO TRACK
 STOCK = "TSLA"
+
+#GET NEWS API KEY
+NEWS_API_KEY = "INSERT APIT KEY"
+NEWS_API = "https://newsapi.org/v2/everything"
+COMPANY_NAME = "Roblox"
+last_month_date = date.today() - timedelta(days=25)
 
 #GET FREE API KEY
 STOCK_API_KEY = "INSERT API KEY"
@@ -13,6 +21,15 @@ STOCK_PARAMS = {
     "symbol": STOCK,
     "apikey": STOCK_API_KEY,
 }
+
+#NEWS PARAMETERS
+NEWS_PARAMS = {
+    "qInTitle": COMPANY_NAME,
+    "from": last_month_date,
+    "sortBy": "publishedAt",
+    "apiKey": NEWS_API_KEY
+}
+
 
 stock_response = requests.get(STOCK_API, params=STOCK_PARAMS)
 stock_response.raise_for_status()
@@ -30,3 +47,8 @@ percent_difference = round(abs((day_before_data / yesterdays_data) - 1) * 100)
 
 percent_difference = ("%.2f" % percent_difference)
 is_up = yesterdays_data > day_before_data
+
+#REQUEST THE NEWS DATA
+news_response = requests.get(NEWS_API, params=NEWS_PARAMS)
+news_response.raise_for_status()
+news_data = news_response.json()
