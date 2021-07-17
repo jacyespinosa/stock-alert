@@ -24,3 +24,9 @@ stock_data_list = [value for key, value in stock_data.items()]
 #ACCESS YESTERDAY'S AND THE DAY BEFORE CLOSING PRICE
 yesterdays_data = float(stock_data_list[0]['4. close'])
 day_before_data = float(stock_data_list[1]['4. close'])
+
+#GET THE POSITIVE DIFFERENCE BETWEEN THE DAY BEFORE DATA AND YESTERDAY'S DATA BY USING PYTHON'S ABS FUNCTION
+percent_difference = round(abs((day_before_data / yesterdays_data) - 1) * 100)
+
+percent_difference = ("%.2f" % percent_difference)
+is_up = yesterdays_data > day_before_data
