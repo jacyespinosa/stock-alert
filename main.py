@@ -1,5 +1,6 @@
 import requests
 from datetime import date, timedelta
+from twilio.rest import Client
 
 
 #CHOOSE A STOCK TO TRACK
@@ -14,6 +15,12 @@ last_month_date = date.today() - timedelta(days=25)
 #GET FREE API KEY
 STOCK_API_KEY = "INSERT API KEY"
 STOCK_API = "https://www.alphavantage.co/query"
+
+
+#TWILIO
+account_sid = 'INSERT TWILIO ACCOUNT SID'
+auth_token = 'INSERT TWILIO TOKEN'
+
 
 #GET THE DAILY DATA THAT RETURNS THE OPEN PRICE, HIGHEST PRICE, LOWEST PRICE AND CLOSING PRICE OF THE DAY.
 STOCK_PARAMS = {
@@ -65,3 +72,29 @@ second_latest_news = f"Headline: {latest_news[1]['title']}\nBrief: {latest_news[
                      f"{latest_news[1]['url']}\n"
 third_latest_news = f"Headline: {latest_news[2]['title']}\nBrief: {latest_news[2]['description']}\nURL: " \
                     f"{latest_news[2]['url']}\n"
+
+
+'''NOTIFY IF THE PERCENT DIFFERENCE FROM THE DAY BEFORE AND YESTERDAY's CLOSING PRICE IS GREATER THAN 5%.
+SEND THE THREE LATEST NEWS SEPARATELY VIA TWILIO.
+'''
+if float(percent_difference) > 5:
+    if is_up:
+        client = Client(account_sid, auth_token)
+        message = client.messages.create(
+            body=f"{STOCK} ⬆️{percent_difference}%\n{first_latest_news}",
+            from_='+14046206886',
+            to='+14085616803'
+        )
+
+        message = client.messages.create(
+            body=f"{STOCK} ⬆️{percent_difference}%\n{second_latest_news}",
+            from_='+14046206886',
+            to='+14085616803'
+        )
+
+        message = client.messages.create(
+            body=f"{STOCK} ⬆️{percent_difference}%\n{third_latest_news}",
+            from_='+14046206886',
+            to='+14085616803'
+        )
+        print(message.status)
