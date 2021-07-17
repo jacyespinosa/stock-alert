@@ -19,3 +19,8 @@ stock_response.raise_for_status()
 
 stock_data = stock_response.json()["Time Series (Daily)"]
 stock_data_list = [value for key, value in stock_data.items()]
+
+
+#ACCESS YESTERDAY'S AND THE DAY BEFORE CLOSING PRICE
+yesterdays_data = float(stock_data_list[0]['4. close'])
+day_before_data = float(stock_data_list[1]['4. close'])
