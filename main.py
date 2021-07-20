@@ -84,20 +84,20 @@ if float(percent_difference) > 5:
         client = Client(account_sid, auth_token)
         message = client.messages.create(
             body=f"{STOCK} ⬆️{percent_difference}%\n{first_latest_news}",
-            from_='+14046206886',
-            to='+14085616803'
+            from_='ENTER PHONE NUMBER',
+            to='ENTER PHONE NUMBER'
         )
 
         message = client.messages.create(
             body=f"{STOCK} ⬆️{percent_difference}%\n{second_latest_news}",
-            from_='+14046206886',
-            to='+14085616803'
+            from_='ENTER PHONE NUMBER',
+            to='ENTER PHONE NUMBER'
         )
 
         message = client.messages.create(
             body=f"{STOCK} ⬆️{percent_difference}%\n{third_latest_news}",
-            from_='+14046206886',
-            to='+14085616803'
+            from_='ENTER PHONE NUMBER',
+            to='ENTER PHONE NUMBER'
         )
         print(message.status)
 
@@ -105,20 +105,20 @@ if float(percent_difference) > 5:
         client = Client(account_sid, auth_token)
         message = client.messages.create(
             body=f"{STOCK} 🔻{percent_difference}%\n{first_latest_news}",
-            from_='+14046206886',
-            to='+14085616803'
+            from_='ENTER PHONE NUMBER',
+            to='ENTER PHONE NUMBER'
         )
 
         message = client.messages.create(
             body=f"{STOCK} 🔻{percent_difference}%\n{second_latest_news}",
-            from_='+14046206886',
-            to='+14085616803'
+            from_='ENTER PHONE NUMBER',
+            to='ENTER PHONE NUMBER'
         )
 
         message = client.messages.create(
             body=f"{STOCK} 🔻{percent_difference}%\n{third_latest_news}",
-            from_='+14046206886',
-            to='+14085616803'
+            from_='ENTER PHONE NUMBER',
+            to='ENTER PHONE NUMBER'
         )
         print(message.status)
 
